@@ -1,0 +1,11 @@
+.lego_image {
+  position: absolute;
+  width: 315px;
+  height: 315px;
+  top: 0;
+  right: -100%; 
+  transition: right 2s ease; 
+  &.show {
+    right: 0;
+  }
+}

@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  align-items: center;
+  max-width: 308px;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  gap: 11px;
+  padding: 14px 13.5px 19px 13.5px;
+  border-radius: var(--border-radius-medium);
+  opacity: 1;
+  box-shadow: inset 3px 3px 6px #EEE5E9;
+  background: transparent linear-gradient(140deg, #FFF7FC66 0%, #FFFFFF66 0%, #FFFFFF00 100%) 0% 0% no-repeat padding-box;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.card__image {
+  border-radius: var(--border-radius-medium);
+}
+
+.card__content {
+  padding-right: 188px;
+}
+
+.card__title {
+  font-size: 35px;
+  line-height: 43px;
+  color: var(--color-light);
+}

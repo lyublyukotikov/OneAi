@@ -1,0 +1,30 @@
+.footer {
+  padding: 31px 49px 30px 48px;
+  background-color: var(--color-ligh-alt);
+  border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  &__contacts {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-family-alt);
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+  &__copyright {
+    display: flex;
+    align-items: center;
+
+    font-family: var(--font-family-alt);
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 24px;
+    font-weight: 100;
+    color: #080708;
+  }
+}

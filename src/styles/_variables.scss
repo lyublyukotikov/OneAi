@@ -1,0 +1,25 @@
+:root {
+  --color-dark:#080708;
+  --color-light:#F0E7ED;
+  --color-ligh-alt: #FCEFF9;
+  --color-accent:#6600FF;
+  --color-accent-alt:#00CC99;
+  --border-radius: 20px;
+  --border-radius-medium:30px;
+  --border-radius-large:50px;
+  --border:2px solid var(--color-dark);
+  --border-accent:2px solid var(--color-accent);
+  --shadow:inset 3px 3px 6px #EEE5E9;
+  --shadow-alt:0px 0px 10px #5FBB9780;
+  --button-height: 25px;
+  --section-padding-y:43px;
+  --button-height-medium: 36px;
+  --button-height-large: 65px;
+  --input-height:55px;
+  --body-with-container: 375px;
+  --container-with:308px;
+  --font-family-base:"Montserrat", sans-serif;
+  --font-family-alt:'SF Pro Display', sans-serif;
+  --font-family-button:'Sohne', sans-serif;
+  
+}

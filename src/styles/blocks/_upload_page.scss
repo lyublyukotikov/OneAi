@@ -1,0 +1,39 @@
+.upload_page {
+  background: transparent linear-gradient(180deg, #6600ff 0%, #00cc99 100%) 0%
+    0% no-repeat padding-box;
+  &__inner {
+    padding: 52px 30px 157px 30px;
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+  }
+  &__exit {
+    margin-bottom: 50px;
+  }
+  &__button {
+    padding-inline: 0px;
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: bold;
+    border: var(--border-radius-medium);
+    color: #080708;
+    background-color: var(--color-ligh-alt);
+    box-shadow: 0px 0px 20px #08070880;
+    height: 55px;
+    padding-left: 21px;
+    padding-right: 21px;
+  }
+  &__picture {
+    position: relative;
+    border-radius: var(--border-radius-medium);
+    width: 315px;
+    height: 315px; 
+    border: 3px solid #eee5e9;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+  }
+}

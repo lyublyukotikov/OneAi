@@ -1,0 +1,23 @@
+.login_form {
+  padding-top: 236px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+
+  &__input {
+    height: var(--input-height);
+    padding-inline: 20px;
+    max-width: 251px;
+    width: 100%;
+    font-family: "Sohne", sans-serif;
+    font-size: 25px;
+    line-height: 33px;
+    font-weight: normal;
+    background-color: transparent;
+    border: 2px solid var(--color-dark);
+    border-radius: var(--border-radius);
+    color: #080708;
+    background: #fceff9 0% 0% no-repeat padding-box;
+  }
+}

@@ -1,0 +1,22 @@
+.header {
+  padding: 19px 33px 18px 34px;
+  background-color: var(--color-ligh-alt);
+  border-radius: 0 0 var(--border-radius-large) var(--border-radius-large);
+  position: sticky;
+  max-width: 375px;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 20px;
+  }
+  &__logo {
+    font-weight: 35px;
+    font-size: 35px;
+    line-height: 43px;
+  }
+}

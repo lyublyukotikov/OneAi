@@ -1,0 +1,20 @@
+.sign_in {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+  &__button {
+    color: #fff7fc;
+    @include flex-center(true);
+    height: 55px;
+    padding-inline: 45px;
+    border: none;
+    border-radius: var(--border-radius-medium);
+    background-color: var(--color-accent-alt);
+    box-shadow: 0px 0px 20px #08070880;
+    font-family: "Sohne", sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 33px;
+  }
+}

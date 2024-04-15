@@ -1,0 +1,577 @@
+@charset "UTF-8";
+/* Нормализация шрифтов */
+/**
+  Нормализация блочной модели
+ */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+   Упрощаем работу с изображениями
+  */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+   Наследуем свойства шрифт для полей ввода
+  */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  height: 100%;
+  /**
+     Плавный скролл
+    */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  min-height: 100%;
+  /**
+     Унифицированный интерлиньяж
+    */
+  line-height: 1.5;
+}
+
+/**
+   Приводим к единому цвету svg-элементы
+  */
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/SFProDisplay-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/SFProDisplay-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sohne";
+  src: url("../fonts/Sohne-Kraftig.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sohne";
+  src: url("../fonts/Sohne-Dreiviertelfett.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sohne";
+  src: url("../fonts/Sohne-Buch.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-dark:#080708;
+  --color-light:#F0E7ED;
+  --color-ligh-alt: #FCEFF9;
+  --color-accent:#6600FF;
+  --color-accent-alt:#00CC99;
+  --border-radius: 20px;
+  --border-radius-medium:30px;
+  --border-radius-large:50px;
+  --border:2px solid var(--color-dark);
+  --border-accent:2px solid var(--color-accent);
+  --shadow:inset 3px 3px 6px #EEE5E9;
+  --shadow-alt:0px 0px 10px #5FBB9780;
+  --button-height: 25px;
+  --section-padding-y:43px;
+  --button-height-medium: 36px;
+  --button-height-large: 65px;
+  --input-height:55px;
+  --body-with-container: 375px;
+  --container-with:308px;
+  --font-family-base:"Montserrat", sans-serif;
+  --font-family-alt:"SF Pro Display", sans-serif;
+  --font-family-button:"Sohne", sans-serif;
+}
+
+.container {
+  max-width: var(--container-with);
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: var(--color-dark);
+  max-width: var(--body-with-container);
+  margin-inline: auto;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 900;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--button-height-medium);
+  padding-inline: 20px;
+  color: var(--color-accent);
+  border: var(--border-accent);
+  border-radius: var(--border-radius-large);
+  background-color: transparent;
+  font-family: var(--font-family-button);
+  font-size: 19px;
+  font-weight: 500;
+}
+.button:hover {
+  cursor: pointer;
+}
+
+.header {
+  padding: 19px 33px 18px 34px;
+  background-color: var(--color-ligh-alt);
+  border-radius: 0 0 var(--border-radius-large) var(--border-radius-large);
+  position: sticky;
+  max-width: 375px;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+}
+.header__logo {
+  font-weight: 35px;
+  font-size: 35px;
+  line-height: 43px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  max-width: 308px;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  gap: 11px;
+  padding: 14px 13.5px 19px 13.5px;
+  border-radius: var(--border-radius-medium);
+  opacity: 1;
+  box-shadow: inset 3px 3px 6px #EEE5E9;
+  background: transparent linear-gradient(140deg, rgba(255, 247, 252, 0.4) 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%) 0% 0% no-repeat padding-box;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.card__image {
+  border-radius: var(--border-radius-medium);
+}
+
+.card__content {
+  padding-right: 188px;
+}
+
+.card__title {
+  font-size: 35px;
+  line-height: 43px;
+  color: var(--color-light);
+}
+
+.section {
+  padding-block: var(--section-padding-y);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.footer {
+  padding: 31px 49px 30px 48px;
+  background-color: var(--color-ligh-alt);
+  border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
+}
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.footer__contacts {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family-alt);
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.footer__copyright {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family-alt);
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 24px;
+  font-weight: 100;
+  color: #080708;
+}
+
+.main__page {
+  background: transparent linear-gradient(180deg, #6600ff 0%, #00cc99 100%) 0% 0% no-repeat padding-box;
+}
+
+.rezult__page {
+  background: transparent linear-gradient(180deg, #6600ff 0%, #00cc99 100%) 0% 0% no-repeat padding-box;
+}
+.rezult__page__inner {
+  padding: 49px 65px 49px 65px;
+}
+.rezult__page__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 35px;
+  justify-content: center;
+}
+.rezult__page__image {
+  border-radius: var(--border-radius-medium);
+  width: 244px;
+  height: 529px;
+  background-image: url("../../assets/rezult-page-image.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.rezult__page__button {
+  font-size: 27px;
+  line-height: 36px;
+  font-weight: bold;
+  color: #fff7fc;
+  background-color: var(--color-accent-alt);
+  border: none;
+  height: var(--button-height-large);
+  padding-inline: 92px;
+  border-radius: var(--border-radius-large);
+  box-shadow: 0px 0px 20px rgba(8, 15, 15, 0.7490196078);
+}
+
+.more_pics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.more_pics__button {
+  font-size: 27px;
+  line-height: 36px;
+  font-weight: normal;
+  height: var(--button-height-large);
+  padding-inline: 36px;
+  border: none;
+  color: var(--color-dark);
+  box-shadow: 0px 0px 20px rgba(8, 15, 15, 0.5019607843);
+  background-color: var(--color-ligh-alt);
+}
+
+.upload_page {
+  background: transparent linear-gradient(180deg, #6600ff 0%, #00cc99 100%) 0% 0% no-repeat padding-box;
+}
+.upload_page__inner {
+  padding: 52px 30px 157px 30px;
+}
+.upload_page__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 40px;
+}
+.upload_page__exit {
+  margin-bottom: 50px;
+}
+.upload_page__button {
+  padding-inline: 0px;
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: bold;
+  border: var(--border-radius-medium);
+  color: #080708;
+  background-color: var(--color-ligh-alt);
+  box-shadow: 0px 0px 20px rgba(8, 7, 8, 0.5019607843);
+  height: 55px;
+  padding-left: 21px;
+  padding-right: 21px;
+}
+.upload_page__picture {
+  position: relative;
+  border-radius: var(--border-radius-medium);
+  width: 315px;
+  height: 315px;
+  border: 3px solid #eee5e9;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.choose_way {
+  color: white;
+}
+.choose_way__list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 22px;
+}
+.choose_way__item {
+  display: flex;
+  flex-direction: column;
+  width: 143px;
+  aspect-ratio: 1;
+  align-items: center;
+  justify-content: center;
+  row-gap: 11.9px;
+  border-radius: var(--border-radius-medium);
+  box-shadow: inset 3px 3px 6px #eee5e9;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 3px solid #eee5e9;
+  background: transparent linear-gradient(135deg, rgba(255, 247, 252, 0.4) 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%) 0% 0% no-repeat padding-box;
+}
+.choose_way__text {
+  font-family: var(--font-family-button);
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
+  line-height: 20px;
+  min-width: 124px;
+}
+
+.login_page {
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  max-width: 375px;
+  margin-inline: auto;
+  height: 100%;
+}
+.login_page__inner {
+  padding-block: 22px 62px;
+}
+
+.login_form {
+  padding-top: 236px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+.login_form__input {
+  height: var(--input-height);
+  padding-inline: 20px;
+  max-width: 251px;
+  width: 100%;
+  font-family: "Sohne", sans-serif;
+  font-size: 25px;
+  line-height: 33px;
+  font-weight: normal;
+  background-color: transparent;
+  border: 2px solid var(--color-dark);
+  border-radius: var(--border-radius);
+  color: #080708;
+  background: #fceff9 0% 0% no-repeat padding-box;
+}
+
+.sign_in {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.sign_in__button {
+  color: #fff7fc;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+  padding-inline: 45px;
+  border: none;
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-accent-alt);
+  box-shadow: 0px 0px 20px rgba(8, 7, 8, 0.5019607843);
+  font-family: "Sohne", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 33px;
+}
+
+.close_button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 36px;
+  aspect-ratio: 1;
+  position: relative;
+}
+.close_button__wrapper {
+  display: flex;
+  margin-left: 240px;
+}
+.close_button::before, .close_button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 7px;
+  width: 70%;
+  height: 2px;
+  background-color: red;
+  border-radius: 5px;
+}
+.close_button::before {
+  rotate: 45deg;
+}
+.close_button::after {
+  rotate: -45deg;
+}
+
+.lego_image {
+  position: absolute;
+  width: 315px;
+  height: 315px;
+  top: 0;
+  right: -100%;
+  transition: right 2s ease;
+}
+.lego_image.show {
+  right: 0;
+}/*# sourceMappingURL=styles.css.map */

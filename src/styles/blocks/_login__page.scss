@@ -1,0 +1,13 @@
+.login_page {
+  &__inner {
+    padding-block: 22px 62px;
+  }
+
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  max-width: 375px;
+
+  margin-inline: auto;
+
+  height: 100%;
+}
