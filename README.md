@@ -1,3 +1,5 @@
+https://lyublyukotikov.github.io/OneAi/
+
 Это приложение React, созданное с использованием Vite.
 Клонируйте репозиторий на ваш компьютер: git clone
 
